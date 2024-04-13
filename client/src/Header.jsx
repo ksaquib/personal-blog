@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
 const Header = () => {
@@ -25,11 +25,12 @@ const Header = () => {
   return (
     <header>
       <Link to="/" className="logo">
-        MyBlog
+        Tech Blog
       </Link>
       <nav>
         {username && (
           <>
+            <span>Hello, {username}</span>
             <Link to="/create"> Create new post</Link>
             <a onClick={logout}>Logout</a>
           </>
